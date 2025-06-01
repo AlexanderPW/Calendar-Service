@@ -2,8 +2,24 @@ import datetime
 import pytz
 from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
+from credentials import get_credentials_map
+
 
 tz = pytz.timezone("America/Chicago")
+
+from credentials import get_credentials_map  # Adjust the import path if necessary
+
+def generate_calendar_summary_for_user(user_email: str) -> str:
+    """
+    Generates an HTML calendar summary for the specified user.
+    """
+    credentials_map = get_credentials_map()
+    user_credentials = credentials_map.get(user_email)
+
+    if not user_credentials:
+        raise ValueError(f"No credentials found for user: {user_email}")
+
+    return generate_summary_html({user_email: user_credentials})
 
 def create_calendar_edit_url(event_html_link):
     if 'calendar.google.com' in event_html_link and 'eid=' in event_html_link:
@@ -168,4 +184,3 @@ def generate_summary_html(credentials_map: dict[str, Credentials]) -> str:
 
     html += "</body></html>"
     return html
-
