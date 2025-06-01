@@ -18,3 +18,4 @@ client_secret.json
 .vscode/
 .idea/
 token.json
+token_*.json
