@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Your Linked Calendars{% endblock %}
+{% block content %}
+  <h1>Connected Google Accounts</h1>
+  <p>Logged in as <strong>{{ email }}</strong></p>
+  {% if tokens %}
+    <ul>
+      {% for token in tokens %}
+        <li>{{ token.google_email }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No Google accounts linked yet.</p>
+  {% endif %}
+  <p><a href="/auth/google">➕ Connect another Google account</a></p>
+  <p><a href="/summary">📄 View Calendar Summary</a></p>
+{% endblock %}

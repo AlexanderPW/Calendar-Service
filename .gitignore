@@ -1,0 +1,19 @@
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual env
+.venv/
+.env
+
+# Tokens & credentials
+token_*.json
+client_secret.json
+
+# Logs and misc
+*.log
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/

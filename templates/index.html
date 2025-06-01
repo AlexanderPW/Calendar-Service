@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  <h1>Welcome to Your Calendar Summary App</h1>
+
+  {% if email %}
+    <p>Logged in as <strong>{{ email }}</strong></p>
+    <p><a href="/login">➕ Connect a Google Calendar</a></p>
+    <p><a href="/accounts">📂 View Linked Accounts</a></p>
+    <p><a href="/summary">📋 View Calendar Summary</a></p>
+  {% else %}
+    <p>Please <a href="/login">log in</a> or <a href="/register">register</a> to get started.</p>
+  {% endif %}
+{% endblock %}

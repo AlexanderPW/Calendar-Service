@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Calendar Summary{% endblock %}</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background: #f4f4fc; color: #333; }
+    h1, h2 { color: #5b4fc7; }
+    a { text-decoration: none; color: #4a5bdc; }
+    nav a { margin-right: 10px; }
+    form input, form button { display: block; margin: 10px 0; padding: 8px; width: 100%; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/accounts">Accounts</a>
+    <a href="/summary">Summary</a>
+    {% if request.cookies.get("user_email") %}
+      <a href="/logout">Logout</a>
+    {% else %}
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    {% endif %}
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>
